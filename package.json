@@ -1,0 +1,27 @@
+{
+  "name": "vue-onliner",
+  "version": "1.0.0",
+  "description": "Function that determines the Internet connection",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svoosh/vue-onliner.git"
+  },
+   "keywords": [
+    "vue",
+    "connection-status",
+    "online",
+    "offline",
+    "vue-online",
+    "vue-offline"
+  ],
+  "author": "svoosh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/svoosh/vue-onliner/issues"
+  },
+  "homepage": "https://github.com/svoosh/vue-onliner#readme"
+}
