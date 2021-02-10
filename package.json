@@ -1,6 +1,6 @@
 {
   "name": "vue-onliner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Function that determines the Internet connection",
   "main": "./src/index.js",
   "scripts": {

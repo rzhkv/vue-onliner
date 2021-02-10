@@ -1,20 +1,41 @@
-(function () {
-  const connectionHandler = (Vue) => {
+export const vueCheckOnline = {
+  data() {
+    return {
+      onliner: false,
+    };
+  },
+  created() {
     if (typeof window !== "undefined") {
-      if (navigator.onLine) {
-        Vue.prototype.$onliner = true;
-      } else {
-        Vue.prototype.$onliner = false;
-      }
+      navigator.onLine ? (this.onliner = true) : (this.onliner = false);
+
+      const onlineHandler = () => {
+        this.$emit("online");
+        this.onliner = true;
+      };
+
+      const offlineHandler = () => {
+        this.$emit("offline");
+        this.onliner = false;
+      };
+
+      window.addEventListener("online", onlineHandler);
+      window.addEventListener("offline", offlineHandler);
+
+      this.$once("hook:beforeDestroy", () => {
+        window.removeEventListener("online", onlineHandler);
+        window.removeEventListener("offline", offlineHandler);
+      });
     }
-  };
+  },
+};
 
-   // Initial setup
-   connectionHandler();
+export const vueCheckNetwork = {
+  install (Vue, options = { mixin: true, storage: true }) {
+    const pluginOptions = {
+      mixin: options.mixin,
+    }
+    if (pluginOptions.mixin) Vue.mixin(vueCheckOnline)
+  }
+}
 
-  // Setup the listeners
-  window.addEventListener("online", connectionHandler);
-  window.addEventListener("offline", connectionHandler);
-
-  export default connectionHandler;
-})();
+export default vueCheckNetwork
