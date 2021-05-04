@@ -6,7 +6,11 @@ export const vueCheckOnline = {
   },
   created() {
     if (typeof window !== "undefined") {
-      navigator.onLine ? (this.onliner = true) : (this.onliner = false);
+      if (navigator.onLine) {
+        this.onliner = true;
+      } else {
+        this.onliner = false;
+      }
 
       const onlineHandler = () => {
         this.onliner = true;
@@ -27,13 +31,14 @@ export const vueCheckOnline = {
   },
 };
 
-export const vueCheckNetwork = {
+export const vueOnliner = {
   install(Vue, options = { mixin: true, storage: true }) {
     const pluginOptions = {
       mixin: options.mixin,
     };
+
     if (pluginOptions.mixin) Vue.mixin(vueCheckOnline);
   },
 };
 
-export default vueCheckNetwork;
+export default vueOnliner;
