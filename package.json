@@ -1,7 +1,7 @@
 {
   "name": "vue-onliner",
-  "version": "1.0.1",
-  "description": "Function that determines the Internet connection",
+  "version": "1.0.2",
+  "description": "A reactive mixin showing the interner connection for vue.js",
   "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

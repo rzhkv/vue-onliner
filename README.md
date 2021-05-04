@@ -1,6 +1,6 @@
 # vue-onliner
 
-> A reactive online/offline mixin for vue.js
+> A reactive mixin showing the interner connection for vue.js
 
 # Installation
 
